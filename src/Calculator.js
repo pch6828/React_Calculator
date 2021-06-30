@@ -1,7 +1,7 @@
 import React from "react";
 
-import Screen from "./Screen";
-import EvalHistory from "./EvalHistory";
+import Screen from "./components/Screen";
+import EvalHistory from "./components/EvalHistory";
 
 import "./Calculator.css";
 class Calculator extends React.Component{
