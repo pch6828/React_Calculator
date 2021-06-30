@@ -1,5 +1,6 @@
 import React from "react";
 
+import "./EvalHistory.css";
 class EvalHistory extends React.Component {
     state = {
         toggle_idx:0
@@ -25,10 +26,13 @@ class EvalHistory extends React.Component {
         
         return (
             <section className="history_container">
-                <button onClick={() => this.toggleHistory()}>history</button>
+                <button className="history__button" onClick={() => this.toggleHistory()}>HISTORY</button>
                 <ul className="histories" style={{display: visibility[toggle_idx]}}>        
                     {totalHistory.map((eval_history, idx) => (
-                        <li key={idx}><button onClick={() => this.props.callback(eval_history.expression)}>{eval_history.expression}</button> = <button onClick={() => this.props.callback(eval_history.answer)}>{eval_history.answer}</button></li>
+                        <li className="histories__history" key={idx}>
+                            <button className="expression_button" onClick={() => {this.toggleHistory(); this.props.callback(eval_history.expression)}}>{eval_history.expression}</button>
+                            <span className="expression_text">=</span>
+                            <button className="expression_button" onClick={() => {this.toggleHistory(); this.props.callback(eval_history.answer)}}>{eval_history.answer}</button></li>
                     ))}
                 </ul>
             </section>

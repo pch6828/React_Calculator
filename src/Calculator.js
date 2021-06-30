@@ -3,6 +3,7 @@ import React from "react";
 import Screen from "./Screen";
 import EvalHistory from "./EvalHistory";
 
+import "./Calculator.css";
 class Calculator extends React.Component{
     state = {
         expression:undefined,
@@ -85,30 +86,32 @@ class Calculator extends React.Component{
             <section className="container">
                 <EvalHistory callback={(expression) => this.setExpression(expression)}/>
                 <Screen expression={expression} show_prev_expression={show_prev_expression}/>
-                <button onClick={() => this.appendNumber(0)}>0</button>
-                <button onClick={() => this.appendNumber(1)}>1</button>
-                <button onClick={() => this.appendNumber(2)}>2</button>
-                <button onClick={() => this.appendNumber(3)}>3</button>
-                <button onClick={() => this.appendNumber(4)}>4</button>
-                <button onClick={() => this.appendNumber(5)}>5</button>
-                <button onClick={() => this.appendNumber(6)}>6</button>
-                <button onClick={() => this.appendNumber(7)}>7</button>
-                <button onClick={() => this.appendNumber(8)}>8</button>
-                <button onClick={() => this.appendNumber(9)}>9</button>
+                <div className="button_container">
+                    <button className="middle_button" onClick={() => this.clearExpression()}>AC</button>
+                    <button className="middle_button" className="middle_button" onClick={() => this.removeCharacter()}>CE</button>
+                    <button className="small_button" onClick={() => this.appendOperator("%")}>%</button>
 
-                <button onClick={() => this.clearExpression()}>AC</button>
-                <button onClick={() => this.removeCharacter()}>CE</button>
-
-                <button onClick={() => this.appendDot()}>.</button>
-                <button onClick={() => this.appendOperator("+")}>+</button>
-                <button onClick={() => this.appendOperator("-")}>-</button>
-                <button onClick={() => this.appendOperator("*")}>*</button>
-                <button onClick={() => this.appendOperator("/")}>/</button>
-                <button onClick={() => this.appendOperator("%")}>%</button>
-
-                
-                <button onClick={() => this.getAnswer()}>=</button>
-                
+                    <button className="small_button" onClick={() => this.appendNumber(7)}>7</button>
+                    <button className="small_button" onClick={() => this.appendNumber(8)}>8</button>
+                    <button className="small_button" onClick={() => this.appendNumber(9)}>9</button>
+                    <button className="small_button" onClick={() => this.appendOperator("/")}>/</button>
+                    
+                    <button className="small_button" onClick={() => this.appendNumber(4)}>4</button>
+                    <button className="small_button" onClick={() => this.appendNumber(5)}>5</button>
+                    <button className="small_button" onClick={() => this.appendNumber(6)}>6</button>
+                    <button className="small_button" onClick={() => this.appendOperator("*")}>*</button>
+                    
+                    <button className="small_button" onClick={() => this.appendNumber(1)}>1</button>
+                    <button className="small_button" onClick={() => this.appendNumber(2)}>2</button>
+                    <button className="small_button" onClick={() => this.appendNumber(3)}>3</button>
+                    <button className="small_button" onClick={() => this.appendOperator("-")}>-</button>
+                    
+                    <button className="small_button" onClick={() => this.appendDot()}>.</button>
+                    <button className="small_button" onClick={() => this.appendNumber(0)}>0</button>
+                    <button className="small_button" onClick={() => this.getAnswer()}>=</button>
+                    <button className="small_button" onClick={() => this.appendOperator("+")}>+</button>
+                    
+                </div>
             </section>
         );
     }
