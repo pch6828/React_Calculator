@@ -88,7 +88,7 @@ class Calculator extends React.Component{
                 <Screen expression={expression} show_prev_expression={show_prev_expression}/>
                 <div className="button_container">
                     <button className="middle_button" onClick={() => this.clearExpression()}>AC</button>
-                    <button className="middle_button" className="middle_button" onClick={() => this.removeCharacter()}>CE</button>
+                    <button className="middle_button" onClick={() => this.removeCharacter()}>CE</button>
                     <button className="small_button" onClick={() => this.appendOperator("%")}>%</button>
 
                     <button className="small_button" onClick={() => this.appendNumber(7)}>7</button>
