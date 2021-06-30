@@ -17,6 +17,7 @@ body,
     margin-top: 15px;
     width: 100%;
     height: 50%;
+    z-index: 3;
 }
 
 .middle_button {
