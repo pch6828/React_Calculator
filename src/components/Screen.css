@@ -2,20 +2,25 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    margin-top: 13%;
+    margin-top: 75px;
     background-color: white;
+    padding: 10px;
     width: 100%;
     height: 20%;
+    min-height: 130px;
+    align-items: center;
 }
 
 .screen .prev_expression {
     font-weight: 500;
-    font-size: large;
+    font-size: 20px;
     text-align: right;
     width: 95%;
-    height: 15%;
-    margin: 2.5%;
+    height: 20%;
     color: gray;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-self: flex-start;
 }
 
 .screen .now_expression {
@@ -23,6 +28,8 @@
     font-size: 80px;
     text-align: right;
     width: 95%;
-    height: 75%;
-    margin: 2.5%;
+    height: 80%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-self: flex-end;
 }

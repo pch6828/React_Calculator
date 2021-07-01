@@ -23,6 +23,7 @@ body,
 .middle_button {
     width: 35.5%;
     height: 20%;
+    min-height: 60px;
     margin: 1%;
     font-weight: 600;
     font-size: x-large;
@@ -36,6 +37,7 @@ body,
 .small_button {
     width: 23%;
     height: 20%;
+    min-height: 60px;
     margin: 1%;
     font-weight: 600;
     font-size: x-large;
