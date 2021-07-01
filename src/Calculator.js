@@ -10,7 +10,8 @@ class Calculator extends React.Component{
         show_prev_expression:false, 
         leading_zero:false,
         end_with_operator:false, 
-        decimal_point:false
+        decimal_point:false,
+        unary_minus:false
     }
     
     componentDidMount(){
@@ -43,7 +44,8 @@ class Calculator extends React.Component{
                             show_prev_expression:false, 
                             leading_zero:(number===0),
                             end_with_operator:false,
-                            decimal_point:false
+                            decimal_point:false,
+                            unary_minus:false
                         });
         }else if(leading_zero){
             this.setState({
@@ -51,7 +53,8 @@ class Calculator extends React.Component{
                             show_prev_expression:false, 
                             leading_zero:(number===0),
                             end_with_operator:false, 
-                            decimal_point:decimal_point
+                            decimal_point:decimal_point,
+                            unary_minus:false
                         });
         }else if(end_with_operator){
             this.setState({
@@ -59,7 +62,8 @@ class Calculator extends React.Component{
                             show_prev_expression:false, 
                             leading_zero:(number===0), 
                             end_with_operator:false, 
-                            decimal_point:false
+                            decimal_point:false,
+                            unary_minus:false
                         });
         }else if(decimal_point){
             this.setState({
@@ -67,7 +71,8 @@ class Calculator extends React.Component{
                             show_prev_expression:false, 
                             leading_zero:false, 
                             end_with_operator:false, 
-                            decimal_point:decimal_point
+                            decimal_point:decimal_point,
+                            unary_minus:false
                         });
         }else{
             this.setState({
@@ -75,13 +80,14 @@ class Calculator extends React.Component{
                             show_prev_expression:false, 
                             leading_zero:false, 
                             end_with_operator:false, 
-                            decimal_point:decimal_point
+                            decimal_point:decimal_point,
+                            unary_minus:false
                         });
         }
     }
 
     appendOperator(operator){
-        const {expression, end_with_operator} = this.state;
+        const {expression, end_with_operator, unary_minus} = this.state;
 
         if(expression===undefined){
             if(operator==="-"){
@@ -90,7 +96,8 @@ class Calculator extends React.Component{
                                 show_prev_expression:false,
                                 leading_zero:false,
                                 end_with_operator:true,
-                                decimal_point:false
+                                decimal_point:false,
+                                unary_minus:true
                             })
             }else{
                 const history_size = Number(window.sessionStorage.history_size);
@@ -100,10 +107,11 @@ class Calculator extends React.Component{
                                 show_prev_expression:false, 
                                 leading_zero:false, 
                                 end_with_operator:true, 
-                                decimal_point:false
+                                decimal_point:false,
+                                unary_minus:false
                             });         
             } 
-        }else if(expression!=="-"){
+        }else if(unary_minus){
             if(end_with_operator){
                 this.setState({
                                 expression:expression.slice(0, expression.length-1)+operator, 
@@ -155,7 +163,7 @@ class Calculator extends React.Component{
 
     getAnswer(){
         const {expression, end_with_operator} = this.state;
-        if(!end_with_operator){
+        if(expression!==undefined&&!end_with_operator){
             let new_answer = undefined;
             try {
                 new_answer = String(eval(expression));
@@ -296,7 +304,7 @@ class Calculator extends React.Component{
                     
                     <button className="small_button" onClick={() => this.appendDot()}>.</button>
                     <button className="small_button" onClick={() => this.appendNumber(0)}>0</button>
-                    <button className="small_button" onClick={() => this.getAnswer()}>=</button>
+                    <button className="small_button" id="answer_button" onClick={() => this.getAnswer()}>=</button>
                     <button className="small_button" onClick={() => this.appendOperator("+")}>+</button>
                     
                 </div>

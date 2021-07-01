@@ -30,9 +30,9 @@ class EvalHistory extends React.Component {
                 <ul className="histories" style={{display: visibility[toggle_idx]}}>        
                     {totalHistory.map((eval_history, idx) => (
                         <li className="histories__history" key={idx}>
-                            <button className="expression_button" onClick={() => {this.toggleHistory(); this.props.callback(eval_history.expression)}}>{eval_history.expression.slice(0, 18)}...</button>
+                            <button className="expression_button" onClick={() => {this.toggleHistory(); this.props.callback(eval_history.expression)}}>{eval_history.expression.slice(0, 18)}{eval_history.expression.length > 18?"...":null}</button>
                             <span className="expression_text">=</span>
-                            <button className="expression_button" onClick={() => {this.toggleHistory(); this.props.callback(eval_history.answer)}}>{eval_history.answer.slice(0, 18)}...</button></li>
+                            <button className="expression_button" onClick={() => {this.toggleHistory(); this.props.callback(eval_history.answer)}}>{eval_history.answer.slice(0, 18)}{eval_history.answer.length > 18?"...":null}</button></li>
                     ))}
                 </ul>
             </section>

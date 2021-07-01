@@ -47,3 +47,8 @@ body,
     border: none;
     background-color: rgb(209, 209, 209);
 }
+
+#answer_button {
+    background-color: mediumturquoise;
+    color: white;
+}
